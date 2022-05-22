@@ -1,0 +1,103 @@
+<div class="container-fluid">
+
+    <div class="header mt-1 p-1">
+          <h1>ADD ORDER</h1>
+    </div>
+  <hr>
+    
+      <div class="box">
+  
+      <div class="fam">      
+          <form [formGroup]="form" (ngSubmit)="submit()">    
+               
+             <!-- <div class="form-group">
+  
+                  <label for="id">id</label>
+                  <input 
+                      formControlName="id"
+                      id="id" 
+                      type="text" 
+                      class="form-control">
+                  <div *ngIf="f.id.touched && f.id.invalid" class="alert alert-danger">
+                      <div *ngIf="f.id.errors?.required">Id is required.</div>
+                  </div>
+              </div>
+          
+          <br>
+
+          <div class="form-group">
+  
+            <label for="orderid">Order Id</label>
+            <input 
+                formControlName="orderid"
+                id="orderid" 
+                type="text" 
+                class="form-control">
+            <div *ngIf="f.orderid.touched && f.orderid.invalid" class="alert alert-danger">
+                <div *ngIf="f.orderid.errors?.required">Order Id is required.</div>
+            </div>
+        </div> -->
+              
+              <br>
+              <div class="form-group">
+                  <label for="producttype"><i>Product Type</i></label>
+                  <select (change)="OnSelect($event)"
+                  formControlName="producttype"
+                  id="producttype"    
+                  type="text" 
+                  class="form-control">
+                  <option *ngFor="let product of products" value={{product.ProductType}}>{{ product.ProductType }}</option><div>{{products|json}}</div>
+  
+                
+               
+                  </select>
+                  <div *ngIf="f.producttype.touched && f.producttype.invalid" class="alert alert-danger">
+                      <div *ngIf="f.producttype.errors?.required">Product Type is required.</div>
+                  </div>
+                  </div>
+              
+          <br>
+          
+        <div class="form-group">
+            <label for="productname">Product Names</label>
+            <select
+    
+            formControlName="productname"
+            id="productname"    
+            type="text" 
+                class="form-control">
+                
+                <option *ngFor="let product of monthList" >{{ product.ProductName }}</option>
+           
+            
+            </select>
+            <div *ngIf="f.productname.touched && f.productname.invalid" class="alert alert-danger">
+                <div *ngIf="f.productname.errors?.required">Product Name is required.</div>
+            </div>
+            </div>
+
+        <br>
+
+        <div class="form-group">
+            <label for="productprice">Price</label>
+            <input formControlName="productprice" id="productprice" name="productprice" type="text" class="form-control">
+    
+            <div *ngIf="f.productprice.touched && f.productprice.invalid" class="alert alert-danger">
+                <div *ngIf="f.productprice.errors?.required">Product Name is required.</div>
+                <div *ngIf="f.productprice.errors?.pattern">Product Name is required.</div>
+    
+            </div>
+        </div>
+          
+          <div class="but">
+              <a href="http://localhost:4200/orders/index" class="btn btn-primary">Back</a>
+              &nbsp;&nbsp;
+              <button class="btn btn-primary" type="submit" [disabled]="!form.valid">Save</button>
+          </div> 
+      </form>
+   </div>   
+   <br>
+  <br>
+  <br>
+  </div>
+  </div>

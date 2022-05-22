@@ -1,0 +1,40 @@
+<div class="container-fluid">
+  <div class="hov">
+    <div class="header mt-1 p-3">
+          <h1>SEAMSTER PRODUCTS</h1>
+    <a href="http://localhost:4200/product/index">PRODUCTS LIST</a>
+    &nbsp;
+    <a href="http://localhost:4200/orders/index">ORDERS LIST</a>
+    &nbsp;
+    <a (click)="openDialog()">ADD PRODUCT</a>
+    &nbsp;
+    <a (click)="openDialogg()">ADD ORDER</a>
+    </div>
+    </div>
+
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+          <th>PRODUCT ID</th>
+          <th>PRODUCT NAME</th>
+          <th>PRODUCT TYPE</th>
+          <th>ACTION</th>
+        </tr>
+      </thead>
+      <tbody>
+        <ng-container>
+          <mat-spinner *ngIf="loading" id="loading"></mat-spinner>
+        </ng-container>
+        
+      <tbody>
+        <tr *ngFor="let product of products">
+          <td>{{ product.ProductId }}</td>
+          <td>{{ product.ProductName }}</td>
+          <td>{{ product.ProductType }}</td>
+          <td>
+<a href="#" [routerLink]="['/product/',product.id,product.ProductId, 'view']"class="btn btn-outline-primary">View</a>          
+</td>
+        </tr>
+      </tbody>
+      </table>
+</div>
